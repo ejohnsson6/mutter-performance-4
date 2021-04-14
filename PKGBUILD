@@ -9,12 +9,12 @@
 ### MERGE REQUESTS SELECTION
 
 # Merge Requests List: ('579' '1309' '1050' '1441' '1241')
-_merge_requests_to_use=() # safe pick
+_merge_requests_to_use=('1441') # safe pick
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgname=mutter-performance
-pkgver=3.38.3
+pkgver=40.0
 pkgrel=1
 pkgdesc="A window manager for GNOME | Attempts to improve performances with non-upstreamed merge-requests and frequent stable branch resync"
 url="https://gitlab.gnome.org/GNOME/mutter"
@@ -26,12 +26,12 @@ depends=(dconf gobject-introspection-runtime gsettings-desktop-schemas
          xorg-xwayland graphene)
 makedepends=(gobject-introspection git egl-wayland meson xorg-server sysprof)
 checkdepends=(xorg-server-xvfb)
-provides=(mutter mutter-781835-workaround libmutter-7.so)
+provides=(libmutter-8.so)
 conflicts=(mutter)
 replaces=(mutter-781835-workaround)
 groups=(gnome)
 install=mutter.install
-_commit=9f9c26be93ee73e7ce0434d251e4af31626342f9  # tags/3.38.3^0
+_commit=21a09fb7928c17519d67ffd8c1ae80071f92fdbf  # tags/3.38.3^0
 source=("$pkgname::git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit")
 sha256sums=('SKIP')
 
@@ -115,21 +115,21 @@ prepare() {
   # Status: 4
   # Comment: Was reverted: https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/833
   #          If you use stenography software or play hardcore rhythm games like Lunatic Rave 2/osumania, use it.
-  pick_mr '579' ce86f90efbaa51522ba14c5b4cad933c2106de42 'revert'
+  #pick_mr '579' ce86f90efbaa51522ba14c5b4cad933c2106de42 'revert'
 
 
   # Title: clutter/text: Use new pango API to compare attribute lists
   # URL:  https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1050
   # Type: 1
   # Status: 2
-  pick_mr '1050'
+  #pick_mr '1050'
 
   # Title: cogl-winsys-glx: Add a heuristically calculated presentation_time
   # URL:  https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1309
   # Type: 1
   # Status: 3
   # Comment: Fix high latency on nvidia driver
-  pick_mr '1309'
+  #pick_mr '1309'
 
   # Title: WIP: clutter-frame-clock: Triple buffering support (v4)
   # URL:  https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441
@@ -144,7 +144,7 @@ prepare() {
   # Type: 1
   # Status: 3
   # Comment: Helps cursor movement under load on Wayland
-  pick_mr '1241' 1241.diff patch
+  #pick_mr '1241' 1241.diff patch
 
 
 }
